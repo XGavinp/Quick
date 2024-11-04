@@ -41,4 +41,9 @@ A "display" button should allow the user to choose the desired grouping, and the
    ```
 5. Open your browser and go to `http://localhost:3000` to see the application in action.
 
+   ## Usage
+- Click the "Display" button to open the display options.
+- Select a grouping option (Status, User, Priority) and an ordering option (Priority, Title).
+- The Kanban board will dynamically adjust to display tasks based on your selections.
+
 
