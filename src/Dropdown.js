@@ -57,9 +57,7 @@ function Dropdown(props) {
         </div>
         </ul>
       </div>
-      {/* <ddSelect>kyhjggljk</ddSelect> */}
-      {/* <ddSelect></ddSelect> */}
-      {/* <Select2></Select2> */}
+      
 
     </>
 

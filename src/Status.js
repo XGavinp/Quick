@@ -135,13 +135,7 @@ const Status = (props) => {
 
     }
 
-
-
-
     // count();
-
-
-
 
 
     return (

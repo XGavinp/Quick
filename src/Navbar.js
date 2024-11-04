@@ -10,7 +10,6 @@ import dropdownimg from './dropdown.png'
 
 function Navbar( props) {
   const [Opendrop, setOpendrop] = useState(false);
-  // const [omesh, setOmesh] = useState(0);
   const dropdownButtonRef = useRef(null);
 
     function onClickHandler(){
