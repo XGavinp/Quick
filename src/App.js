@@ -1,62 +1,46 @@
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-// import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
-import Navbar from './Navbar.js'
-// import { useState, useEffect } from 'react';
-// import Card from './Card';
-// import Boards from './boards.js'
-import Status from './Status.js'
+import Navbar from './Navbar.js';
+import Status from './Status.js';
 import Priority from './Priority';
 import Byuser from './Byuser.js';
-import { useState } from 'react';
-
-// useNavigate
-
 
 function App() {
-  const [Grouping, setGrouping] = useState(localStorage.getItem('grouping'));
-  const [Order, setOrder] = useState(localStorage.getItem('order'));
+  // Set default values if localStorage is empty
+  const [Grouping, setGrouping] = useState(localStorage.getItem('grouping') || 'status');
+  const [Order, setOrder] = useState(localStorage.getItem('order') || 'Priority');
+
   const setGroupingValue = (newValue) => {
     if (newValue === 'status' || newValue === 'priority' || newValue === 'user') {
       setGrouping(newValue);
+      localStorage.setItem('grouping', newValue); // Update localStorage for persistence
     } else {
       console.error('Invalid grouping value provided:', newValue);
     }
   };
 
   const setOrderingValue = (newValue) => {
-    if (newValue === 'priority' || newValue === 'title') {
+    if (newValue === 'Priority' || newValue === 'Title') {
       setOrder(newValue);
+      localStorage.setItem('order', newValue); // Update localStorage for persistence
     } else {
       console.error('Invalid ordering value provided:', newValue);
     }
   };
-  let content;
 
+  let content;
   if (Grouping === 'status') {
-    content = <Status order={Order}  />;
+    content = <Status order={Order} />;
   } else if (Grouping === 'priority') {
     content = <Priority order={Order} />;
   } else {
     content = <Byuser order={Order} />;
   }
+
   return (
     <div className='fullBody'>
-
-      <Navbar order={Order} grouping={Grouping} setGroupingValue={setGroupingValue} setOrderingValue={setOrderingValue}></Navbar>
+      <Navbar order={Order} grouping={Grouping} setGroupingValue={setGroupingValue} setOrderingValue={setOrderingValue} />
       {content}
-      {/* <Router>
-        <Navbar order={Order} grouping={Grouping}></Navbar>
-        <Routes>
-
-
-          <Route path='/' element={<Status />} />
-          <Route path='/user' element={<Byuser />} />
-          <Route path='/priority' element={<Priority />} />
-
-        </Routes>
-      </Router> */}
-
     </div>
   );
 }
