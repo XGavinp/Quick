@@ -25,7 +25,7 @@ function App() {
   };
 
   const setOrderingValue = (newValue) => {
-    if (newValue === 'Priority' || newValue === 'Title') {
+    if (newValue === 'priority' || newValue === 'title') {
       setOrder(newValue);
     } else {
       console.error('Invalid ordering value provided:', newValue);
